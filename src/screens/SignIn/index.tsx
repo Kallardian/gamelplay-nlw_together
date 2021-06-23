@@ -1,24 +1,48 @@
-import React, { useState } from "react";
-import { View, Text, TextInput } from "react-native";
+// import React, { useState } from "react";
+import { 
+  View, 
+  Text, 
+  Image,
+  StatusBar
+} from "react-native";
+
+import IllustrationImg from '../../assets/illustration.png'
 
 import { styles } from './styles'
 
 export function SignIn(){
-    const [text, setText] = useState('') //propriedade do useState importado [estado, funçãoQueAtualizaOEstado]
+    // const [text, setText] = useState('') propriedade do useState importado [estado, funçãoQueAtualizaOEstado]
 
 
   return(
     <View style={styles.container}>
-      <Text>Hello World!</Text>
+      <StatusBar 
+        barStyle="light-content" //pra ficar claro a barra de status
+        backgroundColor="transparent" //para deixar ela transparente
+        translucent //para deixar o conteúdo bater até o topo da tela
+      />
+      <Image 
+      source={IllustrationImg} 
+      style={styles.image}
+      resizeMode="stretch"
+      />
 
-      <TextInput 
-        style={styles.input}
-        onChangeText={setText} // onChangeText = {(value) => setText(value)} 
-    />
+      <View style={styles.content}>
+        <Text style={styles.title}>
+          Organize {`\n`} {/* isso serve para quebrar a linha */ }
+          suas jogatinas {`\n`}
+          facilmente {`\n`}
+        </Text>
 
-      <Text>
-          Você digitou: { text }
-      </Text>
+        <Text style={styles.subtitle}>
+          Crie grupos para jogar seus games{`\n`}
+          favoritos com seus amigos
+        </Text>
+
+
+
+      </View>
+
     </View>
   )
 }
