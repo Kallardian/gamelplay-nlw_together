@@ -1,4 +1,4 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import { 
   View, 
   Text, 
@@ -7,7 +7,7 @@ import {
 } from "react-native";
 
 import IllustrationImg from '../../assets/illustration.png'
-
+import { ButtonIcon } from "../../components/ButtonIcon";
 import { styles } from './styles'
 
 export function SignIn(){
@@ -39,8 +39,7 @@ export function SignIn(){
           favoritos com seus amigos
         </Text>
 
-
-
+        <ButtonIcon />
       </View>
 
     </View>
