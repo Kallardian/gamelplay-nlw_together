@@ -15,11 +15,11 @@ type Props = TouchableOpacityProps & { //recebe todas as propriedades do Touch e
     // title?: string => quando a props é opcional
 }
 
-export function ButtonIcon({ title } : Props){
+export function ButtonIcon({ title, ...rest } : Props){ //rest é todo o resto
     return(
         <TouchableOpacity 
             style={styles.container}
-            activeOpacity={0.7}
+            {...rest}
         >
             <View style ={styles.iconWrapper}>
                 <Image 
