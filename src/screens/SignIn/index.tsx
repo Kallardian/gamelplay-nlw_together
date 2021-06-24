@@ -29,7 +29,8 @@ export function SignIn(){
 
       <View style={styles.content}>
         <Text style={styles.title}>
-          Organize {`\n`} {/* isso serve para quebrar a linha */ }
+          Conecte-se e {`\n`}
+          organize {`\n`} {/* isso serve para quebrar a linha */ }
           suas jogatinas {`\n`}
           facilmente {`\n`}
         </Text>
