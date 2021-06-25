@@ -5,13 +5,13 @@ import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhan
 import AppLoading from 'expo-app-loading'
 import { StatusBar } from "react-native";
 
-import { Home } from "./src/screens/Home";
+import { Routes } from "./src/routes";
 import { Brackground } from "./src/components/Background";
 
 
-export default function App(){
+export default function App() {
 
-  
+
   const [fontsLoeaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -19,19 +19,19 @@ export default function App(){
     Rajdhani_700Bold
   });
 
-  if(!fontsLoeaded){
-    return <AppLoading/>
+  if (!fontsLoeaded) {
+    return <AppLoading />
   }
 
-  return(
-    <Brackground> 
-    <StatusBar 
-      barStyle="light-content" //pra ficar claro a barra de status
-      backgroundColor="transparent" //para deixar ela transparente
-      translucent //para deixar o conteúdo bater até o topo da tela
-    />
+  return (
+    <Brackground>
+      <StatusBar
+        barStyle="light-content" //pra ficar claro a barra de status
+        backgroundColor="transparent" //para deixar ela transparente
+        translucent //para deixar o conteúdo bater até o topo da tela
+      />
 
-    <Home />
+      <Routes />
     </Brackground>
   );
 }
