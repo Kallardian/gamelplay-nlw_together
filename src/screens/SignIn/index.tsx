@@ -1,30 +1,38 @@
 import React, { useState } from "react";
-import { 
-  View, 
-  Text, 
+import {
+  View,
+  Text,
   Image,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import IllustrationImg from '../../assets/illustration.png'
 import { ButtonIcon } from "../../components/ButtonIcon";
 import { styles } from './styles'
 
-export function SignIn(){
-    // const [text, setText] = useState('') propriedade do useState importado [estado, funçãoQueAtualizaOEstado]
 
 
-  return(
+export function SignIn() {
+  // const [text, setText] = useState('') propriedade do useState importado [estado, funçãoQueAtualizaOEstado]
+
+  const navigation = useNavigation();
+
+
+  function handleSignIn() {
+    navigation.navigate('Home')
+  }
+  return (
     <View style={styles.container}>
-      <Image 
-      source={IllustrationImg} 
-      style={styles.image}
-      resizeMode="stretch"
+      <Image
+        source={IllustrationImg}
+        style={styles.image}
+        resizeMode="stretch"
       />
 
       <View style={styles.content}>
         <Text style={styles.title}>
           Conecte-se {`\n`}
-          e organize suas {`\n`} {/* isso serve para quebrar a linha */ }
+          e organize suas {`\n`} {/* isso serve para quebrar a linha */}
           jogatinas {`\n`}
         </Text>
 
@@ -33,9 +41,9 @@ export function SignIn(){
           favoritos com seus amigos
         </Text>
 
-        <ButtonIcon 
+        <ButtonIcon
           title="Entrar com Discord"
-          activeOpacity={0.7} 
+          onPress={handleSignIn}
         />
       </View>
 
