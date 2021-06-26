@@ -8,7 +8,7 @@ import { ListDivider } from "../../components/ListDivider";
 import { ListHeader } from "../../components/ListHeader";
 import { styles } from "./styles"
 import { Appointment } from "../../components/Appointment";
-
+import { Brackground } from "../../components/Background";
 
 export function Home() {
     const [category, setCategory] = useState('')
@@ -45,7 +45,7 @@ export function Home() {
     }
 
     return (
-        <View>
+        <Brackground>
             <View style={styles.header}>
                 <Profile />
                 <ButtonAdd />
@@ -71,6 +71,6 @@ export function Home() {
                     showsVerticalScrollIndicator={false}
                 />
             </View>
-        </View>
+        </Brackground>
     );
 }
