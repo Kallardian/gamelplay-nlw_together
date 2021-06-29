@@ -20,16 +20,29 @@ import { GuildIcon } from "../../components/GuildIcon";
 import { SmallInput } from "../../components/SmallInput";
 import { TextArea } from "../../components/TextArea";
 import { Button } from "../../components/Button";
+import { ModalView } from "../../components/ModalView";
+import { Guilds } from "../Guilds";
+import { GuildProps } from "../../components/Guild";
 
 export function AppointmentCreate() {
     const [category, setCategory] = useState('')
+    const [openGuildsModal, setOpenGuildsModal ] = useState(false)
+    const [guild, setGuild] = useState<GuildProps>({} as GuildProps);
+    
+    function handleOpenGuilds(){
+        setOpenGuildsModal(true);
+    }
+    function handleGuildSelect(guildSelected: GuildProps){
+        setOpenGuildsModal(false);
+        setGuild(guildSelected);
+    }
 
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             style={styles.container}>
             <ScrollView>
-                <Brackground>
+                
                     <Header
                         title="Agendar Partida"
                     />
@@ -47,7 +60,9 @@ export function AppointmentCreate() {
                     />
 
                     <View style={styles.form}>
-                        <RectButton>
+                        <RectButton
+                            onPress={handleOpenGuilds}
+                        >
                             <View style={styles.select}>
                                 {
                                     // <View style={styles.image} />
@@ -112,8 +127,11 @@ export function AppointmentCreate() {
                         <Button title="Agendar" />
                     </View>
                     </View>
-                </Brackground>
+             
             </ScrollView>
+            <ModalView visible={openGuildsModal}>
+                <Guilds handleGuildSelect={handleGuildSelect}/>
+            </ModalView>
         </KeyboardAvoidingView>
     )
 }
