@@ -18,7 +18,13 @@ export function Guilds( {handleGuildSelect }: Props){
             name: 'Lendários',
             icon: 'null',
             owner: true
-        }
+        },
+        {
+            id: '2',
+            name: 'BBF',
+            icon: 'null',
+            owner: false
+        },
     ];
 
     return(
